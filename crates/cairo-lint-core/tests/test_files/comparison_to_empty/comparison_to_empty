@@ -2,7 +2,7 @@
 
 //! > cairo_code
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if arr == ArrayTrait::new() {
         println!("arr is empty");
     }
@@ -10,15 +10,15 @@ fn main() {
 
 //! > diagnostics
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
- --> lib.cairo:4:8
-  |
-4 |     if arr == ArrayTrait::new() {
-  |        -------------------------
-  |
+ --> lib.cairo:3:8
+    |
+3   |     if arr == ArrayTrait::new() {
+    |        -------------------------
+    |
 
 //! > fixed
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if arr.is_empty() {
         println!("arr is empty");
     }
@@ -30,7 +30,7 @@ fn main() {
 
 //! > cairo_code
 fn main() { 
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if ArrayTrait::new() == arr {
         println!("arr is empty");
     }
@@ -38,27 +38,26 @@ fn main() {
 
 //! > diagnostics
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
- --> lib.cairo:4:8
-  |
-4 |     if ArrayTrait::new() == arr {
-  |        -------------------------
-  |
+ --> lib.cairo:3:8
+    |
+3   |     if ArrayTrait::new() == arr {
+    |        -------------------------
+    |
 
 //! > fixed
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if arr.is_empty() {
         println!("arr is empty");
     }
 }
-
 //! > ==========================================================================
 
 //! > test negated comparison with ArrayTrait::new()
 
 //! > cairo_code
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if arr != ArrayTrait::new() {
         println!("arr is not empty");
     }
@@ -66,15 +65,15 @@ fn main() {
 
 //! > diagnostics
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
- --> lib.cairo:4:8
-  |
-4 |     if arr != ArrayTrait::new() {
-  |        -------------------------
-  |
+ --> lib.cairo:3:8
+    |
+3   |     if arr != ArrayTrait::new() {
+    |        -------------------------
+    |
 
 //! > fixed
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if !arr.is_empty() {
         println!("arr is not empty");
     }
@@ -86,7 +85,7 @@ fn main() {
 
 //! > cairo_code
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if ArrayTrait::new() != arr {
         println!("arr is not empty");
     }
@@ -94,15 +93,15 @@ fn main() {
 
 //! > diagnostics
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
- --> lib.cairo:4:8
-  |
-4 |     if ArrayTrait::new() != arr {
-  |        -------------------------
-  |
+ --> lib.cairo:3:8
+    |
+3   |     if ArrayTrait::new() != arr {
+    |        -------------------------
+    |
 
 //! > fixed
 fn main() {
-    let arr = ArrayTrait::new();
+    let arr: Array<felt252> = ArrayTrait::new();
     if !arr.is_empty() {
         println!("arr is not empty");
     }
@@ -114,8 +113,8 @@ fn main() {
 
 //! > cairo_code
 fn main() {
-    let arr1 = ArrayTrait::new();
-    let arr2 = ArrayTrait::new();
+    let arr1: Array<felt252> = ArrayTrait::new();
+    let arr2: Array<felt252> = ArrayTrait::new();
     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
         println!("arr1 is empty and arr2 is not");
     }
@@ -124,22 +123,22 @@ fn main() {
 //! > diagnostics
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:4:8
-  |
-4 |     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
-  |        -------------------------
-  |
+    |
+4   |     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
+    |        -------------------------
+    |
 
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:4:37
-  |
-4 |     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
-  |                                     -------------------------
-  |
+    |
+4   |     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
+    |                                     -------------------------
+    |
 
 //! > fixed
 fn main() {
-    let arr1 = ArrayTrait::new();
-    let arr2 = ArrayTrait::new();
+    let arr1: Array<felt252> = ArrayTrait::new();
+    let arr2: Array<felt252> = ArrayTrait::new();
     if arr1.is_empty() && !arr2.is_empty() {
         println!("arr1 is empty and arr2 is not");
     }

@@ -1,4 +1,4 @@
-//! > Comparison with ArrayTrait::new()
+//! > test comparison with ArrayTrait::new()
 
 //! > cairo_code
 fn main() {
@@ -26,7 +26,7 @@ fn main() {
 
 //! > ==========================================================================
 
-//! > Comparison with ArrayTrait::new() on LHS
+//! > test comparison with ArrayTrait::new() on LHS
 
 //! > cairo_code
 fn main() { 
@@ -54,7 +54,7 @@ fn main() {
 
 //! > ==========================================================================
 
-//! > Negated comparison with ArrayTrait::new()
+//! > test negated comparison with ArrayTrait::new()
 
 //! > cairo_code
 fn main() {
@@ -82,7 +82,7 @@ fn main() {
 
 //! > ==========================================================================
 
-//! > Negated comparison with ArrayTrait::new() on LHS
+//! > test negated comparison with ArrayTrait::new() on LHS
 
 //! > cairo_code
 fn main() {
@@ -110,7 +110,7 @@ fn main() {
 
 //! > ==========================================================================
 
-//! > Comparison with ArrayTrait::new() in complex expression
+//! > test comparison with ArrayTrait::new() in complex expression
 
 //! > cairo_code
 fn main() {

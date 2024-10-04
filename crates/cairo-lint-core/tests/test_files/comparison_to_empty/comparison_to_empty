@@ -12,8 +12,8 @@ fn main() {
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:3:8
     |
-3   |     if arr == ArrayTrait::new() {
-    |        -------------------------
+3   | if arr == ArrayTrait::new() {
+    | -------------------------
     |
 
 //! > fixed
@@ -40,8 +40,8 @@ fn main() {
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:3:8
     |
-3   |     if ArrayTrait::new() == arr {
-    |        -------------------------
+3   | if ArrayTrait::new() == arr {
+    | -------------------------
     |
 
 //! > fixed
@@ -67,8 +67,8 @@ fn main() {
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:3:8
     |
-3   |     if arr != ArrayTrait::new() {
-    |        -------------------------
+3   | if arr != ArrayTrait::new() {
+    | -------------------------
     |
 
 //! > fixed
@@ -78,7 +78,6 @@ fn main() {
         println!("arr is not empty");
     }
 }
-
 //! > ==========================================================================
 
 //! > test negated comparison with ArrayTrait::new() on LHS
@@ -95,8 +94,8 @@ fn main() {
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:3:8
     |
-3   |     if ArrayTrait::new() != arr {
-    |        -------------------------
+3   | if ArrayTrait::new() != arr {
+    | -------------------------
     |
 
 //! > fixed
@@ -124,15 +123,15 @@ fn main() {
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:4:8
     |
-4   |     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
-    |        -------------------------
+4   | if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
+    | -------------------------
     |
 
 warning: Plugin diagnostic: Consider using `.is_empty()` instead of comparing to an empty array.
  --> lib.cairo:4:37
     |
-4   |     if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
-    |                                     -------------------------
+4   | if arr1 == ArrayTrait::new() && arr2 != ArrayTrait::new() {
+    | -------------------------
     |
 
 //! > fixed

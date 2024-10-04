@@ -167,6 +167,10 @@ impl AnalyzerPlugin for CairoLint {
                         eq_op::check_eq_op(db.upcast(), &expr_binary, &mut diags);
                         bitwise_for_parity_check::check_bitwise_for_parity(db.upcast(), &expr_binary, &mut diags);
                         erasing_op::check_erasing_operation(db.upcast(), expr_binary, &mut diags);
+                        
+                        
+                        // comparison_to_empty::check_comparison_to_empty(db.upcast(), &expr_binary,
+                        // &mut diags);
                     }
                     SyntaxKind::ElseClause => {
                         collapsible_if_else::check_collapsible_if_else(

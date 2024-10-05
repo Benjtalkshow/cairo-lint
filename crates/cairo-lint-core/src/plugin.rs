@@ -49,7 +49,8 @@ pub enum CairoLintKind {
     ManualIsOk,
     ManualIsErr,
     ManualExpect,
-    ComparisonToEmpty,
+    ManualExpectErr,
+    ComparisonIsEmpty,
 }
 
 pub fn diagnostic_kind_from_message(message: &str) -> CairoLintKind {
@@ -80,7 +81,8 @@ pub fn diagnostic_kind_from_message(message: &str) -> CairoLintKind {
         manual_is::MANUAL_IS_OK => CairoLintKind::ManualIsOk,
         manual_is::MANUAL_IS_ERR => CairoLintKind::ManualIsErr,
         manual_expect::MANUAL_EXPECT => CairoLintKind::ManualExpect,
-        comparison_to_empty::COMPARISON_TO_EMPTY => CairoLintKind::ComparisonToEmpty,
+        manual_expect_err::MANUAL_EXPECT_ERR => CairoLintKind::ManualExpectErr,
+        comparison_to_empty::COMPARISON_TO_EMPTY => CairoLintKind::ComparisonIsEmpty,
         _ => CairoLintKind::Unknown,
     }
 }
@@ -161,6 +163,11 @@ impl AnalyzerPlugin for CairoLint {
                             &ExprIf::from_syntax_node(db.upcast(), node.clone()),
                             &mut diags,
                         );
+                        manual_expect_err::check_manual_if_expect_err(
+                            db.upcast(),
+                            &ExprIf::from_syntax_node(db.upcast(), node.clone()),
+                            &mut diags,
+                        );
                         manual_unwrap_or_default::check_manual_if_unwrap_or_default(
                             db.upcast(),
                             &ExprIf::from_syntax_node(db.upcast(), node.clone()),
@@ -173,11 +180,10 @@ impl AnalyzerPlugin for CairoLint {
                         double_comparison::check_double_comparison(db.upcast(), &expr_binary, &mut diags);
                         eq_op::check_eq_op(db.upcast(), &expr_binary, &mut diags);
                         bitwise_for_parity_check::check_bitwise_for_parity(db.upcast(), &expr_binary, &mut diags);
-                        erasing_op::check_erasing_operation(db.upcast(), expr_binary, &mut diags);
-
-                        // comparison_to_empty::check_comparison_to_empty(db.upcast(), &expr_binary,
-                        // &mut diags);
+                        erasing_op::check_erasing_operation(db.upcast(), &expr_binary, &mut diags);
+                        comparison_to_empty::check_comparison_to_empty(db.upcast(), &expr_binary, &mut diags);
                     }
+
                     SyntaxKind::ElseClause => {
                         collapsible_if_else::check_collapsible_if_else(
                             db.upcast(),
@@ -214,6 +220,11 @@ impl AnalyzerPlugin for CairoLint {
                             &mut diags,
                         );
                         manual_expect::check_manual_expect(
+                            db.upcast(),
+                            &ExprMatch::from_syntax_node(db.upcast(), node.clone()),
+                            &mut diags,
+                        );
+                        manual_expect_err::check_manual_expect_err(
                             db.upcast(),
                             &ExprMatch::from_syntax_node(db.upcast(), node.clone()),
                             &mut diags,
